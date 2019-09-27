@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="./gameClient/favicon.ico">
+	<title>Phase</title>
+
+    <link rel="stylesheet" type="text/css" href="css/game.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!-- GameView -->
+<div id="gameView">
+    <!-- Game canvas -->
+    <canvas id="mapCanvas"></canvas>
+
+    <!-- Death notices panel -->
+    <div id="deathNotices" class="draggable unselectable">
+        
+    </div>
+
+    <!-- Minimap -->
+    <div id="minimapView" class="draggable unselectable">
+        <canvas id="minimapCanvas" moz-opaque></canvas>
+    </div>
+
+    <!-- Spellbar abilities -->
+    <div id="spellbar" class="draggable unselectable">
+            <div class="ability"></div>
+            <div class="ability"></div>
+            <div class="ability"></div>
+            <div class="ability"></div>
+    </div>
+
+    <!-- Player stats -->
+    <div id="playerStats" class="draggable unselectable">
+
+        <!-- Hp stats -->
+        <div id="hp" class="playerStats tooltipView">
+            <div class="percent"></div>
+            <span class="value"></span>
+            <span class="tooltipUp"></span>
+        </div>
+
+        <!-- Mana stats -->
+        <div id="mana" class="playerStats tooltipView">
+            <div class="percent"></div>
+            <span class="value"></span>
+            <span class="tooltipUp"></span>
+        </div>
+
+    </div>
+
+    <!-- Score Board -->
+    <div id="scoreBoard"></div>
+
+    <!-- Chat -->
+    <div id="chat_box">
+        <div id="msg_box"></div>
+        
+        <div id="input_box">
+            <textarea id="input_field" spellcheck="false"></textarea>
+            <div id="send_msg">Send</div>
+        </div>
+    </div>
+
+</div> <!-- End GameView -->
+
+
+<!-- Lobby -->
+<div id="container">
+	Username: <input type="text" name="username" id="username"></input>
+	<select id="element">
+		<option value="basicFireElement">Fire Element</option>
+		<option value="basicWaterElement">Water Element</option>
+		<option value="basicAirElement">Air Element</option>
+        <option value="basicEarthElement">Earth Element</option>
+	</select>
+	<br><br>
+	<input type="button" value="Play" id="submit" width="150px"></input>
+</div>
+
+
+
+<script src="scripts/jquery-1.12.0.min.js"></script>
+<script src="scripts/socket.io-1.4.5.js"></script>
+<script src="scripts/animations.js"></script>
+<script src="scripts/elements.js"></script>
+<script src="scripts/animations.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/modules/SocketSystem.js"></script>
+<script src="scripts/particleSystem.js"></script>
+<script src="scripts/modules/DrawSystem.js"></script>
+<script src="scripts/modules/DOMSystem.js"></script>
+<script src="scripts/modules/DeathSystem.js"></script>
+<script src="scripts/modules/InputSystem.js"></script>
+<script src="scripts/modules/ChatSystem.js"></script>
+<script src="scripts/game.js"></script>
+
+</body>
+</html>

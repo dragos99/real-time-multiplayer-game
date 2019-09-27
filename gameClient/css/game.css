@@ -1,0 +1,434 @@
+
+
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+    z-index: -1;
+    font-family: "Open Sans";
+}
+
+#gameView{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 1;
+}
+
+
+#mapCanvas{
+    position: absolute;
+    /*background-color: #1f2225;*/
+    background-color: #000;
+    z-index: -1;
+}
+
+#minimapView{
+    position: fixed;
+    border: 3px solid rgba(10, 106, 173, 0.6);
+    background-color: rgba(10, 106, 173, 0.3);
+    border-radius: 3px;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+#minimapCanvas{
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0;
+    padding: 0;
+    z-index: 4;
+}
+
+#container{
+    position: absolute;
+    display: none;
+    background-color: transparent;
+	width: 100%;
+    height: 100%;
+	text-align: center;
+    z-index: 1;
+}
+
+#username, #element{
+    margin-top: 50px;
+}
+
+
+
+
+
+/*
+* === SPELLBAR ===
+*/
+
+#spellbar{
+    position: fixed;
+    width: 280px;
+    height: 60px;
+    left : 0;
+    right: 0;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    cursor: default;
+
+
+}
+
+#spellbar .ability{
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/icon.png");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    color: #fff;
+    border: 3px solid;
+    border-color: rgba(10, 106, 173, 0.6);
+    border-radius: 3px;
+    float: left;
+    margin: 5px;
+}
+
+.cooldownLayer{
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+
+/*
+* === TOOLTIP ===
+*/
+
+.tooltipUp{
+    visibility: hidden;
+    opacity: 0;
+    background-color: #transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    cursor: default;
+}
+
+.tooltipView:hover .tooltipUp {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*
+* === PLAYER STATS ===
+*/
+
+#playerStats{
+    position: fixed;
+    width: 8%;
+    height: 6%;
+    right: 0;
+    top: 0;
+    background-color: rgba(10, 106, 173, 0.3);
+    border: 2px solid rgba(10, 106, 173, 0.6);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+
+#hp .percent{
+    background-color: #0ECC71;
+}
+
+#mana .percent{
+    background-color: #1092C4;
+}
+
+.playerStats{
+    position: relative;
+    width: 90%;
+    height: 35%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border-radius: 3px;    
+    box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.4);
+    z-index: 1;
+    margin: 3.5% auto;
+}
+
+.playerStats .percent{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.playerStats .value{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1em;
+}
+
+.unselectable{
+   user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+
+
+/*
+* === Death Notices panel ===
+*/
+
+#deathNotices{
+    position: fixed;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    left: 8px;
+    top: 8px;
+    z-index: 3;
+}
+
+.death_notice{
+    color: #fff;
+    font-size: 1.25em;
+    border-radius: 5px;
+}
+
+.death_notice img{
+    vertical-align: -5px;
+}
+
+.killer_notice, .assister_notice, .victim_notice{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.my_death_notice{
+    border: 2px solid #0D5BB7;
+}
+
+
+
+/*
+* === Chat box ===
+*/
+
+#chat_box{
+    position: fixed;
+    width: 21%;
+    height: 26%;
+    background-color: transparent;
+    transition: background-color 0.2s;
+    border: none;
+    border-radius: 0 3px 0 0;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+#msg_box{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    background: transparent;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow: auto;
+}
+
+#input_box{
+    width: 100%;
+    height: 20%;
+    box-sizing: border-box;
+    padding-top: 1%;
+    color: #fff;
+    transition: opacity 0.2s;
+    opacity: 0;
+}
+#input_field{
+    float: left;
+    width: 85%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    outline: none;
+    border: none;
+    resize: none;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: inherit;
+    font-family: inherit;
+    padding-top: 3%;
+}
+#send_msg{
+    background-color: rgba(0, 0, 0, 0.3);
+    float: right;
+    width: 15%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 3%;
+    font-size: inherit;
+    font-family: inherit;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+.chat_msg{
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    transition: background-color 0.2s;
+    padding: 0.3%;
+}
+
+.closed{
+    background: linear-gradient(to right, rgba(2, 22, 37, 0.6), rgba(0, 0, 0, 0)); 
+}
+
+.all .msg_sender{
+    color: #30A1FF;
+}
+.all .msg_content{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+
+
+
+/*
+* === SCORE BOARD ===
+*/
+
+#scoreBoard{
+    position: absolute;
+    display: none;
+    width: 50%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    overflow: auto;
+    color: #fff;
+    text-align: center;
+}
+
+#scoreBoard .player{
+    position: relative;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+#scoreBoard .player div, #scoreBoard .title div{
+    height: 100%;
+    display: inline-block;
+    padding: 5px;
+    margin-left: 0.2%;
+    margin-right: 0.2%;
+    box-sizing: border-box; 
+}
+#scoreBoard .title div{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: 1px solid #fff;
+}
+#scoreBoard .player div{
+    background-color: rgba(39, 87, 153, 0.8);
+}
+#scoreBoard .title .element{
+    border: none;
+}
+#scoreBoard .element, .level, .kills, .assists, .deaths{
+    width: 9.5%;
+}
+#scoreBoard .player .username{
+    width: 50%;
+    text-align: left;
+}
+#scoreBoard .title .username{
+    width: 50%;
+    text-align: left;
+}
+
+#scoreBoard .player:hover div{
+    background-color: rgba(50, 98, 165, 0.8);
+}
+
+#scoreBoard .alive div{
+    background-color: rgba(39, 87, 153, 0.8);
+}
+
+#scoreBoard .dead div{
+    background-color: rgba(0, 14, 45, 0.6);
+}
+
+#scoreBoard .epic{
+    color: #400061;
+}
+
+
+
+
+
+
+
+
+
+/*
+* === Auxiliary stuff ===
+*/
+
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}
+
+
+
+@media all and (min-width: 50px)   {  body  { font-size:0.15em;  } }
+@media all and (min-width: 100px)  {  body  { font-size:0.2em;  } }
+@media all and (min-width: 200px)  {  body  { font-size:0.25em;  } }
+@media all and (min-width: 300px)  {  body  { font-size:0.3em;  } }
+@media all and (min-width: 400px)  {  body  { font-size:0.35em;  } }
+@media all and (min-width: 500px)  {  body  { font-size:0.5em;  } }
+@media all and (min-width: 600px)  {  body  { font-size:0.45em;  } }
+@media all and (min-width: 700px)  {  body  { font-size:0.5em;  } }
+@media all and (min-width: 800px)  {  body  { font-size:0.55em;  } }
+@media all and (min-width: 900px)  {  body  { font-size:0.6em;  } }
+@media all and (min-width: 1000px) {  body  { font-size:0.65em;  } }
+@media all and (min-width: 1100px) {  body  { font-size:0.7em;  } }
+@media all and (min-width: 1200px) {  body  { font-size:0.75em;  } }
+@media all and (min-width: 1300px) {  body  { font-size:0.8em;  } }
+@media all and (min-width: 1400px) {  body  { font-size:0.85em;  } }
+@media all and (min-width: 1500px) {  body  { font-size:0.9em;  } }
+@media all and (min-width: 1600px) {  body  { font-size:0.95em;  } }
+@media all and (min-width: 1700px) {  body  { font-size:1em;  } }
